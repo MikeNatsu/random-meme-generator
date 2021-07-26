@@ -20,19 +20,14 @@ const httpOptions = {
 })
 export class MemeService {
   constructor(private router: Router, private http: HttpClient) {}
-  api = 'https://namo-memes.herokuapp.com';
+  api = 'http://localhost:4001';
 
   //Single meme
-  generateMeme(): Observable<any> {
-    let data = fetch(`${this.api}/memes/1`).then((res) => {
-      return res.json();
-    });
-    const aMeme = data;
-    return new Observable((subscriber) => {
-      subscriber.next(aMeme);
-    });
+  generateMeme() {
+    return this.http.get<Meme[]>(`${this.api}/memes/1`);
   }
 
+  //Multiple memes
   generateNmeme(n: number) {
     return this.http.get<Meme[]>(`${this.api}/memes/${n}`);
   }
