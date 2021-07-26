@@ -1,0 +1,7 @@
+{
+  "/memes/*": {
+    "target": "https://namo-memes.herokuapp.com",
+    "secure": true,
+    "changeOrigin":true
+  }
+}

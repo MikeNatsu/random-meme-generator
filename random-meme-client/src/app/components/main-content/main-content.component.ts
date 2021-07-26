@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { pipe, Subscription } from 'rxjs';
 import { Meme, MemeService } from '../../meme-handler/service/meme.service';
@@ -9,18 +10,11 @@ import { Meme, MemeService } from '../../meme-handler/service/meme.service';
 })
 export class MainContentComponent implements OnInit, OnDestroy {
   currentMemes: Meme[] | Meme | undefined;
-  subscription: Subscription;
+  subscription: Subscription | undefined;
 
-  constructor(private memeService: MemeService) {
-    this.subscription = this.memeService.generateMeme().subscribe((res) => {
-      this.currentMemes = res;
-    });
-    this.memeService.generateMeme().subscribe(pipe((res : Meme)=>{ this.currentMemes = res}))
-  }
+  constructor(private memeService: MemeService, private http: HttpClient) {}
   ngOnInit(): void {
-    console.log(this.currentMemes);
+    this.memeService.generateMeme().subscribe((res) => console.log(res));
   }
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
+  ngOnDestroy(): void {}
 }
