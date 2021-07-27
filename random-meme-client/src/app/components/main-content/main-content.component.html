@@ -2,7 +2,7 @@
   <app-header></app-header>
   <div class="body-content">
     <mat-card class="main-card" *ngFor="let meme of currentMemes">
-      <img src="{{ meme.url }}" alt="No meme, try another one" width="600" height="600" />
+      <img src="{{ meme.image }}" alt="No meme, try another one" width="600" height="600" />
       <div>
         <button color="primary" (click)="newMeme()" mat-raised-button>Random Meme</button>
       </div>

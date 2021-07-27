@@ -20,6 +20,7 @@ export class MainContentComponent implements OnInit {
       .pipe(take(1))
       .subscribe((res) => {
         this.currentMemes = res;
+        console.log(res);
       });
   }
 

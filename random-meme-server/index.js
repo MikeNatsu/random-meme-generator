@@ -1,18 +1,18 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const fetch = require('node-fetch');
-
-const api = 'https://namo-memes.herokuapp.com';
+const memesReddit = require('reddit-image-fetcher');
 
 app.use(cors());
 app.get('/memes/:n', async (req, res) => {
 	try {
 		const { n } = req.params;
-		const data = await fetch(`${api}/memes/${n}`);
-		console.log(data);
-		const memes = await data.json();
-		res.send(memes);
+		const data = await memesReddit.fetch({
+			type: 'meme',
+			total: n,
+			addSubreddit: ['memes', 'funny'],
+		});
+		res.send(data);
 	} catch (error) {
 		console.log(error);
 	}
