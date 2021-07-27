@@ -9,9 +9,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MainContentComponent } from './components/main-content/main-content.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, MainContentComponent, FooterComponent],
+  declarations: [AppComponent, HeaderComponent, MainContentComponent, FooterComponent, AboutComponent],
 
   imports: [
     AngularMaterialModule,
@@ -19,6 +21,7 @@ import { MainContentComponent } from './components/main-content/main-content.com
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
