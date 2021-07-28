@@ -6,12 +6,24 @@
     display: block;
     margin-right: auto;
     margin-left: auto;
+    max-width: 50%;
+    max-height: 65%;
   }
-  div{
-    display:flex;
+  div {
+    display: flex;
     justify-content: center;
-    button{
+    button {
       margin: 3%;
     }
   }
+}
+.body-content {
+  flex-grow: 6;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
 }
