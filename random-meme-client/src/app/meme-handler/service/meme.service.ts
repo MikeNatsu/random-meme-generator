@@ -13,7 +13,7 @@ export interface Meme {
 })
 export class MemeService {
   constructor(private router: Router, private http: HttpClient) {}
-  api = 'https://meme-generator-angular.herokuapp.com';
+  api = environment.api;
 
   //Single meme
   generateMeme() {
